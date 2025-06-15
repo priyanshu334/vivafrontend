@@ -6,8 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart } from "lucide-react";
 import { wishlist } from "@/utils/data";
+import { useWishlistStore } from "@/stores/wishlistStore";
 
 const WishlistPage = () => {
+  const wishlist = useWishlistStore((state) => state.wishlist);
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full mx-auto p-4 sm:p-6 lg:p-8">
