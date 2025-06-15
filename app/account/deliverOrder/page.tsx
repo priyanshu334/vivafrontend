@@ -13,7 +13,7 @@ export default function OrderSummary() {
       <Card className="mt-4 border">
         <CardContent className="flex flex-col items-center py-8">
           <Image
-            src="/loungewear.jpg" // Place the image in `public/` directory
+            src="/img3.png" // Place the image in `public/` directory
             alt="Loungewear"
             width={150}
             height={150}

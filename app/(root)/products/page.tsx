@@ -8,19 +8,19 @@ const products = [
   {
     title: "Black Blossom Threadwork Cotton Suit",
     price: 1490,
-    image: "/images/product1.jpg",
+    image: "/img3.png",
     label: "BEST PICK",
   },
   {
     title: "Blue Blossom Threadwork Cotton Suit",
     price: 1490,
-    image: "/images/product2.jpg",
+    image: "/img3.png",
     label: "BEST PICK",
   },
   {
     title: "Red Blossom Threadwork Cotton Suit",
     price: 1490,
-    image: "/images/product3.jpg",
+    image: "/img3.png",
     label: "ADD TO CART",
   },
   {
@@ -28,7 +28,7 @@ const products = [
     price: 1430,
     originalPrice: 2380,
     discount: "40% OFF",
-    image: "/images/product4.jpg",
+    image: "/img3.png",
     label: "ADD TO CART",
   },
   {
@@ -36,7 +36,7 @@ const products = [
     price: 1430,
     originalPrice: 2380,
     discount: "40% OFF",
-    image: "/images/product5.jpg",
+    image: "/img3.png",
     label: "ADD TO CART",
   },
   {
@@ -44,7 +44,7 @@ const products = [
     price: 1430,
     originalPrice: 2380,
     discount: "40% OFF",
-    image: "/images/product6.jpg",
+    image: "/img3.png",
     label: "ADD TO CART",
   },
 ];
@@ -53,17 +53,17 @@ const recentlyViewed = [
   {
     title: "Blue Botanical Box Cotton A Line Kurti set",
     price: 1699,
-    image: "/images/recent1.jpg",
+    image: "/img3.png",
   },
   {
     title: "Pink Lush Blossom Cotton A Line Kurti set",
     price: 1699,
-    image: "/images/recent2.jpg",
+    image: "/img3.png",
   },
   {
     title: "Pink Floral Printed Pakistani Lace Suit",
     price: 1699,
-    image: "/images/recent3.jpg",
+    image: "/img3.png",
   },
 ];
 
@@ -110,13 +110,11 @@ export default function ProductListingPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products.map((product, idx) => (
           <Card key={idx} className="rounded-2xl overflow-hidden">
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={300}
-              height={400}
-              className="object-cover w-full h-80"
-            />
+   <img
+                  src={product.image}
+                  alt={product.title}
+                  className={`w-full h-130 object-cover transition-transform duration-500 group-hover:scale-105 `}
+                />
             <CardContent className="p-4">
               <h2 className="text-lg font-medium">{product.title}</h2>
               <p className="text-pink-600 font-semibold mt-2">
@@ -142,13 +140,11 @@ export default function ProductListingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {recentlyViewed.map((item, idx) => (
             <Card key={idx} className="rounded-2xl overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={300}
-                height={400}
-                className="object-cover w-full h-80"
-              />
+         <img
+                  src={item.image}
+                  alt={item.title}
+                  className={`w-full h-130 object-cover transition-transform duration-500 group-hover:scale-105 `}
+                />
               <CardContent className="p-4">
                 <h2 className="text-lg font-medium">{item.title}</h2>
                 <p className="text-pink-600 font-semibold mt-2">₹{item.price}</p>

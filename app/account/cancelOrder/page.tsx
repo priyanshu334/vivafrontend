@@ -15,7 +15,7 @@ const Page = () => {
       <Card>
         <CardContent className="flex flex-col items-center py-6">
           <img
-            src="/path-to-image.jpg"
+            src="/img3.png"
             alt="Product"
             className="w-32 h-48 object-cover mb-4"
           />
