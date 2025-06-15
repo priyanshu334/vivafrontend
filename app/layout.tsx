@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 // Site metadata
 export const metadata: Metadata = {
-  title: "Your Brand Name",
+  title: "Viva Boutique",
   description: "Welcome to Your Brand – modern design, quality service, and seamless experience.",
 };
 
