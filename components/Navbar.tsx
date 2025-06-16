@@ -29,7 +29,7 @@ export default function Header() {
                 width={140}
                 height={50}
                 priority
-                className="object-contain h-12 sm:h-14 lg:h-30  w-auto"
+                className="object-contain h-24 sm:h-24 lg:h-30  w-auto"
               />
             </div>
           </Link>
