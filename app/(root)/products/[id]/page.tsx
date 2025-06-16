@@ -13,12 +13,11 @@ export default function ProductPage() {
   const [isWishlisted, setIsWishlisted] = useState(false);
 
   const images = [
-    "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=500&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1560243563-062bfc001d68?w=500&h=600&fit=crop"
-  ];
+    "/img3.png",
+    "/img3.png",
+    "/img3.png",
+    "/img3.png",
+    "/img3.png"];
 
   const colorOptions = [
     { name: 'Black', color: '#000000', image: images[0] },
@@ -41,57 +40,57 @@ export default function ProductPage() {
     <div className="bg-white text-black min-h-screen">
       {/* Header with breadcrumb */}
       <div className="bg-gray-50 border-b">
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <p className="text-sm text-gray-600 flex items-center space-x-2">
-            <span className="hover:text-black cursor-pointer">HOME</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 sm:py-3">
+          <p className="text-xs sm:text-sm text-gray-600 flex items-center space-x-1 sm:space-x-2 overflow-x-auto">
+            <span className="hover:text-black cursor-pointer whitespace-nowrap">HOME</span>
             <span>/</span>
-            <span className="hover:text-black cursor-pointer">EVERYTHING</span>
+            <span className="hover:text-black cursor-pointer whitespace-nowrap">EVERYTHING</span>
             <span>/</span>
-            <span className="hover:text-black cursor-pointer">WOMEN'S FASHION</span>
+            <span className="hover:text-black cursor-pointer whitespace-nowrap">WOMEN'S FASHION</span>
             <span>/</span>
-            <span className="text-black font-medium">BLACK COLLAR BAROQUE COTTON LOUNGEWEAR SET</span>
+            <span className="text-black font-medium whitespace-nowrap">BLACK COLLAR BAROQUE COTTON LOUNGEWEAR SET</span>
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {/* Product Section */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 mb-8 lg:mb-16">
           {/* Product Images */}
-          <div className="space-y-4">
-            <div className="relative overflow-hidden rounded-2xl bg-gray-50 group">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-50 group">
               <img 
                 src={images[selectedImage]} 
                 alt="Loungewear Set" 
-                className="w-full h-[600px] object-cover transition-transform duration-300 group-hover:scale-105" 
+                className="w-full h-80 sm:h-98 lg:h-[600px] object-cover transition-transform duration-300 group-hover:scale-105" 
               />
               <button 
                 onClick={() => setSelectedImage(selectedImage > 0 ? selectedImage - 1 : images.length - 1)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 sm:p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={16} className="sm:w-5 sm:h-5" />
               </button>
               <button 
                 onClick={() => setSelectedImage(selectedImage < images.length - 1 ? selectedImage + 1 : 0)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1.5 sm:p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={16} className="sm:w-5 sm:h-5" />
               </button>
             </div>
             
-            <div className="flex space-x-3 overflow-x-auto pb-2">
+            <div className="flex space-x-2 sm:space-x-3 overflow-x-auto pb-2">
               {images.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => setSelectedImage(i)}
-                  className={`flex-shrink-0 rounded-lg overflow-hidden transition-all ${
+                  className={`flex-shrink-0 rounded-md sm:rounded-lg overflow-hidden transition-all ${
                     selectedImage === i ? 'ring-2 ring-black ring-offset-2' : 'hover:opacity-80'
                   }`}
                 >
                   <img
                     src={img}
                     alt={`View ${i + 1}`}
-                    className="w-20 h-24 object-cover"
+                    className="w-16 h-20 sm:w-20 sm:h-24 object-cover"
                   />
                 </button>
               ))}
@@ -99,34 +98,34 @@ export default function ProductPage() {
           </div>
 
           {/* Product Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <div>
-              <h1 className="text-3xl font-bold mb-3 leading-tight">BLACK COLLAR BAROQUE COTTON LOUNGEWEAR SET</h1>
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3 leading-tight">BLACK COLLAR BAROQUE COTTON LOUNGEWEAR SET</h1>
               <div className="flex items-center space-x-2 mb-2">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
+                    <Star key={i} size={14} className="sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span className="text-sm text-gray-600">(127 reviews)</span>
+                <span className="text-xs sm:text-sm text-gray-600">(127 reviews)</span>
               </div>
-              <div className="flex items-baseline space-x-3">
-                <span className="text-3xl font-bold text-green-700">₹ 1,490</span>
-                <span className="text-xl text-gray-400 line-through">₹ 1,599</span>
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">7% off</span>
+              <div className="flex flex-wrap items-baseline space-x-2 sm:space-x-3">
+                <span className="text-2xl sm:text-3xl font-bold text-green-700">₹ 1,490</span>
+                <span className="text-lg sm:text-xl text-gray-400 line-through">₹ 1,599</span>
+                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs sm:text-sm font-medium">7% off</span>
               </div>
-              <p className="text-sm text-gray-600 mt-1">MRP inclusive of all taxes</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">MRP inclusive of all taxes</p>
             </div>
 
             {/* Color Selection */}
             <div>
-              <h3 className="font-semibold text-lg mb-3">Select Color</h3>
-              <div className="flex space-x-3">
+              <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Select Color</h3>
+              <div className="flex space-x-2 sm:space-x-3">
                 {colorOptions.map((option, i) => (
                   <button
                     key={i}
                     onClick={() => setSelectedImage(i)}
-                    className={`relative w-16 h-16 rounded-lg overflow-hidden transition-all ${
+                    className={`relative w-12 h-12 sm:w-16 sm:h-16 rounded-md sm:rounded-lg overflow-hidden transition-all ${
                       selectedImage === i ? 'ring-2 ring-black ring-offset-2' : 'hover:scale-105'
                     }`}
                   >
@@ -138,16 +137,16 @@ export default function ProductPage() {
 
             {/* Size Selection */}
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-lg">Select Size</h3>
-                <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">Size Guide</button>
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <h3 className="font-semibold text-base sm:text-lg">Select Size</h3>
+                <button className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium">Size Guide</button>
               </div>
               <div className="grid grid-cols-5 gap-2">
                 {sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`py-3 px-4 rounded-lg border-2 transition-all font-medium ${
+                    className={`py-2 sm:py-3 px-2 sm:px-4 rounded-md sm:rounded-lg border-2 transition-all font-medium text-sm sm:text-base ${
                       selectedSize === size
                         ? 'border-black bg-black text-white'
                         : 'border-gray-200 hover:border-gray-400'
@@ -161,168 +160,272 @@ export default function ProductPage() {
 
             {/* Quantity */}
             <div>
-              <h3 className="font-semibold text-lg mb-3">Quantity</h3>
+              <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Quantity</h3>
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center hover:border-gray-400 transition-colors"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-gray-200 flex items-center justify-center hover:border-gray-400 transition-colors"
                 >
-                  <Minus size={16} />
+                  <Minus size={14} className="sm:w-4 sm:h-4" />
                 </button>
-                <span className="text-xl font-semibold w-8 text-center">{quantity}</span>
+                <span className="text-lg sm:text-xl font-semibold w-6 sm:w-8 text-center">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="w-10 h-10 rounded-full border-2 border-gray-200 flex items-center justify-center hover:border-gray-400 transition-colors"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-gray-200 flex items-center justify-center hover:border-gray-400 transition-colors"
                 >
-                  <Plus size={16} />
+                  <Plus size={14} className="sm:w-4 sm:h-4" />
                 </button>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <Button 
                 size="lg" 
-                className="w-full h-14 text-lg font-semibold bg-black hover:bg-gray-800 transition-colors"
+                className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold bg-black hover:bg-gray-800 transition-colors"
               >
-                <ShoppingCart size={20} className="mr-2" /> 
+                <ShoppingCart size={18} className="sm:w-5 sm:h-5 mr-2" /> 
                 ADD TO BAG
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="w-full h-14 text-lg font-semibold border-2 hover:bg-gray-50 transition-colors"
+                className="w-full h-12 sm:h-14 text-base sm:text-lg font-semibold border-2 hover:bg-gray-50 transition-colors"
                 onClick={() => setIsWishlisted(!isWishlisted)}
               >
-                <Heart size={20} className={`mr-2 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} /> 
+                <Heart size={18} className={`sm:w-5 sm:h-5 mr-2 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} /> 
                 {isWishlisted ? 'ADDED TO WISHLIST' : 'ADD TO WISHLIST'}
               </Button>
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6 border-t">
               <div className="text-center">
-                <Truck size={24} className="mx-auto mb-2 text-gray-600" />
-                <p className="text-sm font-medium">Free Shipping</p>
+                <Truck size={20} className="sm:w-6 sm:h-6 mx-auto mb-1 sm:mb-2 text-gray-600" />
+                <p className="text-xs sm:text-sm font-medium">Free Shipping</p>
                 <p className="text-xs text-gray-500">Above ₹999</p>
               </div>
               <div className="text-center">
-                <RotateCcw size={24} className="mx-auto mb-2 text-gray-600" />
-                <p className="text-sm font-medium">Easy Returns</p>
+                <RotateCcw size={20} className="sm:w-6 sm:h-6 mx-auto mb-1 sm:mb-2 text-gray-600" />
+                <p className="text-xs sm:text-sm font-medium">Easy Returns</p>
                 <p className="text-xs text-gray-500">30 days</p>
               </div>
               <div className="text-center">
-                <Shield size={24} className="mx-auto mb-2 text-gray-600" />
-                <p className="text-sm font-medium">Secure Payment</p>
+                <Shield size={20} className="sm:w-6 sm:h-6 mx-auto mb-1 sm:mb-2 text-gray-600" />
+                <p className="text-xs sm:text-sm font-medium">Secure Payment</p>
                 <p className="text-xs text-gray-500">100% Safe</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Product Details Tabs */}
-        <div className="mb-16">
-          <Tabs defaultValue="details" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
-              <TabsTrigger value="details" className="text-lg">Product Details</TabsTrigger>
-              <TabsTrigger value="care" className="text-lg">Care Instructions</TabsTrigger>
-              <TabsTrigger value="shipping" className="text-lg">Shipping & Returns</TabsTrigger>
-              <TabsTrigger value="reviews" className="text-lg">Reviews (127)</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="details" className="mt-6">
-              <div className="prose max-w-none">
-                <h3 className="text-xl font-semibold mb-4">About This Product</h3>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  Experience ultimate comfort with our Black Collar Baroque Cotton Loungewear Set. 
-                  Crafted from premium 100% cotton, this set features an elegant baroque pattern 
-                  that adds sophistication to your relaxation time.
-                </p>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Premium 100% cotton fabric</li>
-                  <li>• Baroque collar design</li>
-                  <li>• Comfortable loose fit</li>
-                  <li>• Breathable and skin-friendly</li>
-                  <li>• Perfect for lounging and casual wear</li>
-                </ul>
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="care" className="mt-6">
-              <div className="prose max-w-none">
-                <h3 className="text-xl font-semibold mb-4">Care Instructions</h3>
-                <div className="space-y-3 text-gray-700">
-                  <p>• Machine wash cold with like colors</p>
-                  <p>• Use mild detergent, avoid bleach</p>
-                  <p>• Tumble dry low or hang to dry</p>
-                  <p>• Iron on low heat if needed</p>
-                  <p>• Do not dry clean</p>
-                </div>
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="shipping" className="mt-6">
-              <div className="prose max-w-none">
-                <h3 className="text-xl font-semibold mb-4">Shipping & Returns</h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="font-semibold mb-2">Shipping Information</h4>
-                    <p className="text-gray-700 mb-2">• Free shipping on orders above ₹999</p>
-                    <p className="text-gray-700 mb-2">• Standard delivery: 3-5 business days</p>
-                    <p className="text-gray-700">• Express delivery: 1-2 business days</p>
+        {/* Product Details - Mobile Accordion, Desktop Tabs */}
+        <div className="mb-8 lg:mb-16">
+          {/* Mobile Accordion */}
+          <div className="lg:hidden">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="details">
+                <AccordionTrigger className="text-base font-semibold">Product Details</AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">About This Product</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      Experience ultimate comfort with our Black Collar Baroque Cotton Loungewear Set. 
+                      Crafted from premium 100% cotton, this set features an elegant baroque pattern 
+                      that adds sophistication to your relaxation time.
+                    </p>
+                    <ul className="space-y-1 text-gray-700 text-sm">
+                      <li>• Premium 100% cotton fabric</li>
+                      <li>• Baroque collar design</li>
+                      <li>• Comfortable loose fit</li>
+                      <li>• Breathable and skin-friendly</li>
+                      <li>• Perfect for lounging and casual wear</li>
+                    </ul>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Return Policy</h4>
-                    <p className="text-gray-700 mb-2">• 30-day return window</p>
-                    <p className="text-gray-700 mb-2">• Free returns for defective items</p>
-                    <p className="text-gray-700">• Items must be in original condition</p>
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="care">
+                <AccordionTrigger className="text-base font-semibold">Care Instructions</AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-2 text-gray-700 text-sm">
+                    <p>• Machine wash cold with like colors</p>
+                    <p>• Use mild detergent, avoid bleach</p>
+                    <p>• Tumble dry low or hang to dry</p>
+                    <p>• Iron on low heat if needed</p>
+                    <p>• Do not dry clean</p>
                   </div>
-                </div>
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="reviews" className="mt-6">
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="text-4xl font-bold">4.8</div>
-                  <div>
-                    <div className="flex items-center mb-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
-                      ))}
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="shipping">
+                <AccordionTrigger className="text-base font-semibold">Shipping & Returns</AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-4 text-sm">
+                    <div>
+                      <h4 className="font-semibold mb-2">Shipping Information</h4>
+                      <div className="text-gray-700 space-y-1">
+                        <p>• Free shipping on orders above ₹999</p>
+                        <p>• Standard delivery: 3-5 business days</p>
+                        <p>• Express delivery: 1-2 business days</p>
+                      </div>
                     </div>
-                    <p className="text-gray-600">Based on 127 reviews</p>
+                    <div>
+                      <h4 className="font-semibold mb-2">Return Policy</h4>
+                      <div className="text-gray-700 space-y-1">
+                        <p>• 30-day return window</p>
+                        <p>• Free returns for defective items</p>
+                        <p>• Items must be in original condition</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="space-y-4">
-                  {[1, 2, 3].map((_, i) => (
-                    <div key={i} className="border-b pb-4">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <div className="flex">
-                          {[...Array(5)].map((_, j) => (
-                            <Star key={j} size={16} className="fill-yellow-400 text-yellow-400" />
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="reviews">
+                <AccordionTrigger className="text-base font-semibold">Reviews (127)</AccordionTrigger>
+                <AccordionContent>
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="text-2xl font-bold">4.8</div>
+                      <div>
+                        <div className="flex items-center mb-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />
                           ))}
                         </div>
-                        <span className="font-medium">Sarah M.</span>
-                        <span className="text-gray-500 text-sm">Verified Purchase</span>
+                        <p className="text-gray-600 text-sm">Based on 127 reviews</p>
                       </div>
-                      <p className="text-gray-700">
-                        Amazing quality and super comfortable! The fabric is soft and the fit is perfect. 
-                        Highly recommend for anyone looking for comfortable loungewear.
-                      </p>
                     </div>
-                  ))}
+                    
+                    <div className="space-y-3">
+                      {[1, 2, 3].map((_, i) => (
+                        <div key={i} className="border-b pb-3">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <div className="flex">
+                              {[...Array(5)].map((_, j) => (
+                                <Star key={j} size={14} className="fill-yellow-400 text-yellow-400" />
+                              ))}
+                            </div>
+                            <span className="font-medium text-sm">Sarah M.</span>
+                            <span className="text-gray-500 text-xs">Verified</span>
+                          </div>
+                          <p className="text-gray-700 text-sm">
+                            Amazing quality and super comfortable! The fabric is soft and the fit is perfect.
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+
+          {/* Desktop Tabs */}
+          <div className="hidden lg:block">
+            <Tabs defaultValue="details" className="w-full">
+              <TabsList className="grid w-full grid-cols-4 mb-8">
+                <TabsTrigger value="details" className="text-lg">Product Details</TabsTrigger>
+                <TabsTrigger value="care" className="text-lg">Care Instructions</TabsTrigger>
+                <TabsTrigger value="shipping" className="text-lg">Shipping & Returns</TabsTrigger>
+                <TabsTrigger value="reviews" className="text-lg">Reviews (127)</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="details" className="mt-6">
+                <div className="prose max-w-none">
+                  <h3 className="text-xl font-semibold mb-4">About This Product</h3>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Experience ultimate comfort with our Black Collar Baroque Cotton Loungewear Set. 
+                    Crafted from premium 100% cotton, this set features an elegant baroque pattern 
+                    that adds sophistication to your relaxation time.
+                  </p>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Premium 100% cotton fabric</li>
+                    <li>• Baroque collar design</li>
+                    <li>• Comfortable loose fit</li>
+                    <li>• Breathable and skin-friendly</li>
+                    <li>• Perfect for lounging and casual wear</li>
+                  </ul>
                 </div>
-              </div>
-            </TabsContent>
-          </Tabs>
+              </TabsContent>
+              
+              <TabsContent value="care" className="mt-6">
+                <div className="prose max-w-none">
+                  <h3 className="text-xl font-semibold mb-4">Care Instructions</h3>
+                  <div className="space-y-3 text-gray-700">
+                    <p>• Machine wash cold with like colors</p>
+                    <p>• Use mild detergent, avoid bleach</p>
+                    <p>• Tumble dry low or hang to dry</p>
+                    <p>• Iron on low heat if needed</p>
+                    <p>• Do not dry clean</p>
+                  </div>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="shipping" className="mt-6">
+                <div className="prose max-w-none">
+                  <h3 className="text-xl font-semibold mb-4">Shipping & Returns</h3>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="font-semibold mb-2">Shipping Information</h4>
+                      <p className="text-gray-700 mb-2">• Free shipping on orders above ₹999</p>
+                      <p className="text-gray-700 mb-2">• Standard delivery: 3-5 business days</p>
+                      <p className="text-gray-700">• Express delivery: 1-2 business days</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Return Policy</h4>
+                      <p className="text-gray-700 mb-2">• 30-day return window</p>
+                      <p className="text-gray-700 mb-2">• Free returns for defective items</p>
+                      <p className="text-gray-700">• Items must be in original condition</p>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+              
+              <TabsContent value="reviews" className="mt-6">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="text-4xl font-bold">4.8</div>
+                    <div>
+                      <div className="flex items-center mb-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-gray-600">Based on 127 reviews</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    {[1, 2, 3].map((_, i) => (
+                      <div key={i} className="border-b pb-4">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <div className="flex">
+                            {[...Array(5)].map((_, j) => (
+                              <Star key={j} size={16} className="fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
+                          <span className="font-medium">Sarah M.</span>
+                          <span className="text-gray-500 text-sm">Verified Purchase</span>
+                        </div>
+                        <p className="text-gray-700">
+                          Amazing quality and super comfortable! The fabric is soft and the fit is perfect. 
+                          Highly recommend for anyone looking for comfortable loungewear.
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
         </div>
 
         {/* Similar Products */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-8">You Might Also Like</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <section className="mb-8 lg:mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-8">You Might Also Like</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {similarProducts.map((product, i) => (
               <Card key={i} className="group cursor-pointer hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
@@ -330,15 +433,15 @@ export default function ProductPage() {
                     <img 
                       src={product.image} 
                       alt={product.name} 
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" 
+                      className="w-full h-48 sm:h-64 lg:h-80 object-cover group-hover:scale-105 transition-transform duration-300" 
                     />
-                    <button className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Heart size={16} />
+                    <button className="absolute top-2 sm:top-3 right-2 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Heart size={14} className="sm:w-4 sm:h-4" />
                     </button>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-medium text-sm mb-2 line-clamp-2">{product.name}</h3>
-                    <p className="text-lg font-bold">₹ {product.price.toLocaleString()}</p>
+                  <div className="p-3 sm:p-4">
+                    <h3 className="font-medium text-xs sm:text-sm mb-1 sm:mb-2 line-clamp-2">{product.name}</h3>
+                    <p className="text-sm sm:text-lg font-bold">₹ {product.price.toLocaleString()}</p>
                   </div>
                 </CardContent>
               </Card>

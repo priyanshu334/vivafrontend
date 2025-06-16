@@ -1,34 +1,64 @@
-// app/profile/page.tsx
 'use client'
 
 import { useState } from 'react'
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
-import Sidebar from '@/components/Sidebar'
-import { User, Mail, Phone, Calendar, Lock, Edit, Save, X, Globe, UserCircle } from "lucide-react"
-import Link from "next/link"
+import {
+  User,
+  Mail,
+  Phone,
+  Calendar,
+  Lock,
+  Edit,
+  Save,
+  X,
+  UserCircle
+} from "lucide-react"
 
 export default function ProfilePage() {
   const [gender, setGender] = useState("MALE")
   const [isEditing, setIsEditing] = useState(false)
+  const pathname = usePathname()
+
+  const tabs = [
+    { name: "My Profile", href: "/profile" },
+    { name: "Wishlist", href: "/wishlist" },
+    { name: "Orders", href: "/account/orders" },
+    { name: "My Address", href: "/account/addresses" },
+    { name: "Track Order", href: "/account/trackorder" },
+  ]
 
   return (
-    <div className='flex min-h-screen bg-gray-50'>
-      {/* Sidebar */}
-      <div className="flex-shrink-0">
-        <Sidebar/>
-      </div>
+    <div className="flex flex-row min-h-screen bg-gray-50">
+      <div className="flex-1 p-4 sm:p-6 overflow-auto">
+        <div className="max-w-5xl mx-auto space-y-6">
 
-      {/* Main Content */}
-      <div className="flex-1 p-6">
-        <div className="max-w-4xl mx-auto space-y-6">
-          
-          {/* Breadcrumb Navigation */}
+          {/* Tabs Navigation */}
+          <div className="bg-pink-200 rounded-xl font-bold shadow-sm border p-2 flex flex-wrap gap-2 justify-start sm:justify-between">
+            {tabs.map((tab) => (
+              <Link
+                key={tab.href}
+                href={tab.href}
+                className={cn(
+                  "px-4 py-2 rounded-lg text-sm  transition-all",
+                  pathname === tab.href
+                    ? "bg-rose-500 text-white shadow"
+                    : "text-gray-700 hover:bg-rose-100"
+                )}
+              >
+                {tab.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Breadcrumb */}
           <nav className="text-sm text-muted-foreground bg-white rounded-lg px-4 py-3 border shadow-sm">
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center space-x-2">
               <Link href="/" className="text-pink-400 hover:text-pink-500 transition-colors">HOME</Link>
               <span>|</span>
               <Link href="/account" className="text-pink-400 hover:text-pink-500 transition-colors">ACCOUNT</Link>
@@ -38,8 +68,8 @@ export default function ProfilePage() {
           </nav>
 
           {/* Profile Header */}
-          <div className="bg-white rounded-xl border shadow-sm p-6">
-            <div className="flex items-center justify-between">
+          <div className="bg-white rounded-xl border shadow-sm p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center">
                   <UserCircle className="w-8 h-8 text-white" />
@@ -60,16 +90,15 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Contact Information Section */}
-          <div className="bg-white rounded-xl border shadow-sm">
-            <div className="border-b border-gray-100 p-6">
+          {/* Contact Information */}
+          <section className="bg-white rounded-xl border shadow-sm">
+            <div className="border-b border-gray-100 p-4 sm:p-6">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-pink-400" />
                 <h2 className="font-bold text-xl text-gray-900">CONTACT INFORMATION</h2>
               </div>
             </div>
-            
-            <div className="p-6 space-y-6">
+            <div className="p-4 sm:p-6 space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label className="text-sm font-medium text-gray-700 flex items-center gap-2">
@@ -83,15 +112,14 @@ export default function ProfilePage() {
                     className="h-11 border-gray-200 focus:border-pink-400 focus:ring-pink-400 disabled:bg-gray-50"
                   />
                 </div>
-                
                 <div className="space-y-2">
                   <Label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                     <Phone className="w-4 h-4 text-gray-500" />
                     Phone Number
                   </Label>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <Select defaultValue="INDIA" disabled={!isEditing}>
-                      <SelectTrigger className="w-32 h-11 border-gray-200 focus:border-pink-400 disabled:bg-gray-50">
+                      <SelectTrigger className="sm:w-32 h-11 border-gray-200 focus:border-pink-400 disabled:bg-gray-50">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -119,19 +147,18 @@ export default function ProfilePage() {
                 </div>
               )}
             </div>
-          </div>
+          </section>
 
-          {/* Primary Information Section */}
-          <div className="bg-white rounded-xl border shadow-sm">
-            <div className="border-b border-gray-100 p-6">
+          {/* Primary Information */}
+          <section className="bg-white rounded-xl border shadow-sm">
+            <div className="border-b border-gray-100 p-4 sm:p-6">
               <div className="flex items-center gap-3">
                 <User className="w-5 h-5 text-pink-400" />
                 <h2 className="font-bold text-xl text-gray-900">PRIMARY INFORMATION</h2>
               </div>
             </div>
-
-            <div className="p-6 space-y-6">
-              {/* Name Fields */}
+            <div className="p-4 sm:p-6 space-y-6">
+              {/* Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label className="text-sm font-medium text-gray-700">First Name</Label>
@@ -151,10 +178,10 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              {/* Gender Selection */}
+              {/* Gender */}
               <div className="space-y-3">
                 <Label className="text-sm font-medium text-gray-700">Gender</Label>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                   {["MALE", "FEMALE", "OTHER"].map((g) => (
                     <Button
                       key={g}
@@ -175,13 +202,13 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              {/* Date of Birth */}
+              {/* DOB */}
               <div className="space-y-3">
                 <Label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-gray-500" />
                   Date of Birth
                 </Label>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="space-y-1">
                     <Label className="text-xs text-gray-500">Day</Label>
                     <Select defaultValue="19" disabled={!isEditing}>
@@ -227,13 +254,13 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              {/* Password Section */}
+              {/* Password */}
               <div className="space-y-3 bg-gray-50 rounded-lg p-4">
                 <Label className="text-sm font-medium text-gray-700 flex items-center gap-2">
                   <Lock className="w-4 h-4 text-gray-500" />
                   Password
                 </Label>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
                   <Input 
                     type="password" 
                     defaultValue="********"
@@ -270,7 +297,7 @@ export default function ProfilePage() {
                 </div>
               )}
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>

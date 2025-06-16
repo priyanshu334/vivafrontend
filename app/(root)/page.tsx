@@ -4,6 +4,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart } from "lucide-react";
+import Link from "next/link";
 import { products as allProducts, type Product } from "@/utils/data";
 import { useWishlistStore } from "@/stores/wishlistStore";
 import { useCartStore } from "@/stores/cartStore";
@@ -67,6 +68,8 @@ const KurtaSet = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {allProducts.map((product, index) => {
             const isWished = wishlist.some((item) => item.title === product.title);
+            const productId = index + 1;
+
             return (
               <Card
                 key={index}
@@ -74,13 +77,14 @@ const KurtaSet = () => {
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className="w-full h-130 object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <Link href={`/products/${productId}`}>
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full h-130 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </Link>
 
                     {/* Heart Icon */}
                     <div className="absolute top-4 right-4">
@@ -96,7 +100,7 @@ const KurtaSet = () => {
                       </div>
                     </div>
 
-                    {/* Quick View */}
+                    {/* Add to Cart Button */}
                     <div className="absolute inset-x-4 bottom-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Button
                         onClick={() => handleAddToCart(product)}
@@ -107,26 +111,28 @@ const KurtaSet = () => {
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-sm font-semibold leading-relaxed text-gray-800 mb-3 line-clamp-2 group-hover:text-[#AE4A56] transition-colors duration-200">
-                      {product.title}
-                    </h3>
-                    <div className="flex items-center justify-between">
-                      <p className="text-lg font-bold text-[#AE4A56]">₹{product.price}</p>
-                      {product.originalPrice && (
-                        <div className="text-xs text-gray-500 line-through">
-                          ₹{product.originalPrice}
+                  <Link href={`/products/${productId}`}>
+                    <div className="p-6 cursor-pointer">
+                      <h3 className="text-sm font-semibold leading-relaxed text-gray-800 mb-3 line-clamp-2 group-hover:text-[#AE4A56] transition-colors duration-200">
+                        {product.title}
+                      </h3>
+                      <div className="flex items-center justify-between">
+                        <p className="text-lg font-bold text-[#AE4A56]">₹{product.price}</p>
+                        {product.originalPrice && (
+                          <div className="text-xs text-gray-500 line-through">
+                            ₹{product.originalPrice}
+                          </div>
+                        )}
+                      </div>
+                      {product.discount && (
+                        <div className="mt-2">
+                          <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
+                            {product.discount}
+                          </span>
                         </div>
                       )}
                     </div>
-                    {product.discount && (
-                      <div className="mt-2">
-                        <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
-                          {product.discount}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                  </Link>
                 </CardContent>
               </Card>
             );
