@@ -16,7 +16,7 @@ export default function TrackOrderPage() {
 
   const tabs = [
     { name: "My Profile", href: "/account" },
-    { name: "Wishlist", href: "/wishlist" },
+    { name: "Wishlist", href: "/account/wishlist" },
     { name: "Orders", href: "/account/orders" },
     { name: "My Address", href: "/account/addresses" },
     { name: "Track Order", href: "/account/trackorder" },

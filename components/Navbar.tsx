@@ -76,7 +76,7 @@ export default function Header() {
             </Link>
 
             {/* Wishlist Icon */}
-            <Link href="/wishlist">
+            <Link href="/account/wishlist">
               <div className="flex flex-col items-center group cursor-pointer p-1.5 sm:p-2 rounded-lg hover:bg-gray-50 transition">
                 <div className="relative">
                   <FaHeart className="text-gray-600 group-hover:text-[#b36985] w-4 sm:w-5 h-4 sm:h-5" />

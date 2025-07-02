@@ -36,15 +36,15 @@ export default function CategoryScroller() {
       {/* Top Banner */}
       <div className="flex justify-between bg-[#B76E79] text-white text-xs sm:text-sm uppercase px-4 sm:px-8 py-3 font-semibold tracking-wide shadow-sm">
         <span className="flex items-center">
-          <span className="w-1 h-1 bg-white rounded-full mr-2"></span>
+      
           Free Shipping
         </span>
         <span className="flex items-center">
-          <span className="w-1 h-1 bg-white rounded-full mr-2"></span>
+        
           COD Available
         </span>
         <span className="flex items-center">
-          <span className="w-1 h-1 bg-white rounded-full mr-2"></span>
+          
           Worldwide Shipping
         </span>
       </div>
