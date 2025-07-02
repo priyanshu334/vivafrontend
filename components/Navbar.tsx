@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-white shadow-lg border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-2 lg:px-2">
         {/* Top Header */}
         <div className="flex items-center justify-between py-2 sm:py-3 gap-2 sm:gap-4 lg:gap-6">
           {/* Logo */}
@@ -40,11 +40,11 @@ export default function Header() {
               <Input
                 type="text"
                 placeholder="Search for products, brands, categories..."
-                className="w-full pl-4 pr-11 py-2 lg:py-2.5 border-2 border-gray-200 rounded-full text-gray-700 placeholder:text-gray-400 bg-gray-50 focus:bg-white focus:border-[#b36985] focus:ring-2 focus:ring-[#b36985]/20 transition-all duration-300 text-sm lg:text-base h-10 lg:h-11"
+                className="w-full pl-4 pr-11 py-2 lg:py-2.5 border-2 border-gray-200  text-gray-700 placeholder:text-gray-400 bg-gray-50 focus:bg-white focus:border-[#b36985] focus:ring-2 focus:ring-[#b36985]/20 transition-all duration-300 text-sm lg:text-base h-10 lg:h-11"
               />
               <div className="absolute right-2.5 top-1/2 -translate-y-1/2">
-                <div className="bg-gradient-to-r from-[#b36985] to-[#a25877] p-1.5 rounded-full cursor-pointer hover:shadow-md transition-all duration-200 group-hover:scale-105">
-                  <FaSearch className="text-white w-3.5 h-3.5" />
+                <div className="bg-gradient-to-r  p-1.5 rounded-full cursor-pointer hover:shadow-md transition-all duration-200 group-hover:scale-105">
+                  <FaSearch className="text-gray-400 w-3.5 h-3.5" />
                 </div>
               </div>
             </div>

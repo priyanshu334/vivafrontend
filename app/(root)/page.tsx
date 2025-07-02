@@ -65,7 +65,7 @@ const KurtaSet = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {allProducts.map((product, index) => {
             const isWished = wishlist.some((item) => item.title === product.title);
             const productId = index + 1;
@@ -141,9 +141,12 @@ const KurtaSet = () => {
 
         {/* Show More Button */}
         <div className="flex justify-center mt-16">
-          <Button className="bg-[#AE4A56] text-white px-12 py-4 rounded-full hover:bg-[#963944] transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+          <Link href="/products">
+               <Button className="bg-[#B76E79] text-white px-12 py-6  hover:bg-[#963944] transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
             Show More Products
           </Button>
+          </Link>
+     
         </div>
       </div>
     </div>

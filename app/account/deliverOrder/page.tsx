@@ -22,7 +22,7 @@ export default function OrderSummary() {
           <h2 className="mt-4 text-center font-semibold text-sm uppercase">Black Collar Baroque Cotton Loungewear Set</h2>
           <p className="text-sm mt-1">Size: L</p>
 
-          <div className="bg-rose-400 text-white rounded-md px-4 py-2 mt-4">
+          <div className="bg-[#B76E79] text-white rounded-md px-4 py-2 mt-4">
             Delivered on Wed, 27 May 2025
           </div>
 

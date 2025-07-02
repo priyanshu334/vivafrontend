@@ -90,7 +90,7 @@ export default function ProductListingPage() {
   };
 
   return (
-    <div className="p-4 max-w-screen-2xl mx-auto">
+    <div className="p-4 max-w-screen-3xl mx-auto">
       {/* Header Filters Section */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold mb-2">EVERYTHING UNDER ₹1499</h1>
@@ -163,7 +163,7 @@ export default function ProductListingPage() {
                   <span className="ml-2 text-green-600">{product.discount}</span>
                 )}
               </p>
-              <Button className="mt-4 w-full">{product.label}</Button>
+              <Button className="mt-4 w-full bg-[#B76E79]">{product.label}</Button>
             </CardContent>
           </Card>
         ))}

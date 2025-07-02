@@ -30,7 +30,7 @@ export default function AddressForm() {
         {/* Header */}
         <div className="border-b border-gray-100 p-6">
           <div className="flex items-center gap-3">
-            <MapPin className="w-6 h-6 text-rose-400" />
+            <MapPin className="w-6 h-6 text-[#B76E79]" />
             <h2 className="text-xl font-bold text-gray-900">MY ADDRESSES</h2>
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function AddressForm() {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100">
             <Button 
-              className="bg-rose-400 hover:bg-rose-500 text-white px-8 py-3 h-auto flex items-center gap-2 shadow-sm transition-all duration-200 hover:shadow-md"
+              className="bg-[#B76E79] hover:bg-[#9e5964] text-white px-8 py-3 h-auto flex items-center gap-2 shadow-sm transition-all duration-200 hover:shadow-md"
             >
               <Save className="w-4 h-4" />
               SAVE ADDRESS

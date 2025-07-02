@@ -26,8 +26,8 @@ const Page = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 mt-4">
-            <Button className="bg-green-600 hover:bg-green-700">Cancel Order</Button>
-            <Button variant="outline">Update Address</Button>
+            <Button className="bg-[#089313] hover:bg-green-700 px-20 py-5">Cancel Order</Button>
+            <Button variant="outline" className="px-20 py-5 hover:bg-amber-50 border">Update Address</Button>
           </div>
 
           {/* Delivery Info */}

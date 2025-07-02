@@ -49,7 +49,7 @@ export default function PaymentPage() {
             <Card
               key={item.value}
               className={`p-4 cursor-pointer border-2 transition-all duration-200 ${
-                method === item.value ? "border-pink-500" : "border-gray-200"
+                method === item.value ? "border-[#B76E79]" : "border-gray-200"
               }`}
               onClick={() => setMethod(item.value)}
             >
@@ -70,7 +70,7 @@ export default function PaymentPage() {
 
         {method === "upi" && (
           <Card className="p-4">
-            <h3 className="text-lg font-semibold text-pink-600 mb-4">UPI Payment</h3>
+            <h3 className="text-lg font-semibold text-[#B76E79] mb-4">UPI Payment</h3>
             <RadioGroup value={upiApp} onChange={setUpiApp} className="space-y-2">
               {upiApps.map((app) => (
                 <RadioGroup.Option
@@ -98,7 +98,7 @@ export default function PaymentPage() {
               value={upiId}
               onChange={(e) => setUpiId(e.target.value)}
             />
-            <Button className="w-full mt-4 bg-pink-600 hover:bg-pink-700">
+            <Button className="w-full mt-4 bg-[#B76E79] hover:bg-pink-700">
               Pay ₹2,980
             </Button>
           </Card>

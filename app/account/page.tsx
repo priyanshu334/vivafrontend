@@ -33,28 +33,32 @@ export default function ProfilePage() {
     { name: "Track Order", href: "/account/trackorder" },
   ]
 
+
   return (
     <div className="flex flex-row min-h-screen bg-gray-50">
       <div className="flex-1 p-4 sm:p-6 overflow-auto">
         <div className="max-w-5xl mx-auto space-y-6">
 
-          {/* Tabs Navigation */}
-          <div className="bg-pink-200 rounded-xl font-bold shadow-sm border p-2 flex flex-wrap gap-2 justify-start sm:justify-between">
-            {tabs.map((tab) => (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className={cn(
-                  "px-4 py-2 rounded-lg text-sm  transition-all",
-                  pathname === tab.href
-                    ? "bg-rose-500 text-white shadow"
-                    : "text-gray-700 hover:bg-rose-100"
-                )}
-              >
-                {tab.name}
-              </Link>
-            ))}
-          </div>
+       <div className="bg-white rounded-xl shadow-sm border p-4 flex flex-wrap gap-3 justify-start sm:justify-between">
+  {tabs.map((tab) => {
+    const isActive = pathname === tab.href;
+    return (
+      <Link
+        key={tab.href}
+        href={tab.href}
+        className={cn(
+          "text-sm font-semibold px-4 py-2 rounded-full transition-all duration-200",
+          isActive
+            ? "bg-[#B76E79] text-white shadow-md"
+            : "bg-gray-100 text-gray-700 hover:bg-[#f7d9dc]"
+        )}
+      >
+        {tab.name}
+      </Link>
+    );
+  })}
+</div>
+  
 
           {/* Breadcrumb */}
           <nav className="text-sm text-muted-foreground bg-white rounded-lg px-4 py-3 border shadow-sm">
@@ -71,7 +75,7 @@ export default function ProfilePage() {
           <div className="bg-white rounded-xl border shadow-sm p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-[#B76E79] rounded-full flex items-center justify-center">
                   <UserCircle className="w-8 h-8 text-white" />
                 </div>
                 <div>
@@ -94,7 +98,7 @@ export default function ProfilePage() {
           <section className="bg-white rounded-xl border shadow-sm">
             <div className="border-b border-gray-100 p-4 sm:p-6">
               <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-pink-400" />
+                <Mail className="w-5 h-5 text-[#B76E79]" />
                 <h2 className="font-bold text-xl text-gray-900">CONTACT INFORMATION</h2>
               </div>
             </div>
@@ -189,7 +193,7 @@ export default function ProfilePage() {
                       className={cn(
                         "px-6 py-2 transition-all duration-200",
                         gender === g 
-                          ? "bg-rose-400 hover:bg-rose-500 text-white shadow-md" 
+                          ? "bg-[#B76E79] hover:bg-rose-500 text-white shadow-md" 
                           : "border-gray-200 hover:bg-pink-50 hover:border-pink-300",
                         !isEditing && "opacity-60 cursor-not-allowed"
                       )}
@@ -269,7 +273,7 @@ export default function ProfilePage() {
                   />
                   <Button 
                     variant="ghost" 
-                    className="text-rose-400 hover:text-rose-500 hover:bg-rose-50 px-4 whitespace-nowrap"
+                    className="text-[#B76E79] hover:text-rose-500 hover:bg-rose-50 px-4 whitespace-nowrap"
                   >
                     Change Password
                   </Button>
