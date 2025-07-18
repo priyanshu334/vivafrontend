@@ -32,7 +32,7 @@ export default function CategoryScroller() {
   };
 
   return (
-    <div className="w-full  mt-1">
+    <div className="w-full  ">
       {/* Top Banner */}
       <div className="flex justify-between bg-[#B76E79] text-white text-xs sm:text-sm uppercase px-4 sm:px-8 py-3 font-semibold tracking-wide shadow-sm">
         <span className="flex items-center">
@@ -50,7 +50,7 @@ export default function CategoryScroller() {
       </div>
 
       {/* Scrollable Categories */}
-      <div className="relative bg-gradient-to-b from-gray-50 to-white py-6">
+      <div className="relative bg-gradient-to-b from-gray-50 to-white py-2">
         {/* Left Arrow */}
         <Button
           variant="ghost"

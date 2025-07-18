@@ -57,7 +57,7 @@ const ProductCard = ({
 }) => (
   <Card className="w-full">
     <CardContent className="p-2">
-      <div className="bg-gray-100 rounded-lg overflow-hidden mb-2">
+      <div className="bg-gray-100 rounded-none overflow-hidden mb-2">
         <Image src="/img3.png" alt={title} width={300} height={400} className="w-full object-cover aspect-[3/4]" />
       </div>
       <h3 className="text-sm text-gray-700 mb-1">{title}</h3>
@@ -155,7 +155,7 @@ const ProductPage = () => {
                   alt={`Thumb ${index + 1}`}
                   width={64}
                   height={80}
-                  className={`w-16 h-20 object-cover rounded-md cursor-pointer border-2 ${mainImage === src ? "border-pink-500" : "border-transparent"}`}
+                  className={`w-16 h-20 object-cover rounded-none cursor-pointer border-2 ${mainImage === src ? "border-pink-500" : "border-transparent"}`}
                   onMouseOver={() => setMainImage(src)}
                   onClick={() => setMainImage(src)}
                 />
@@ -165,7 +165,7 @@ const ProductPage = () => {
               </Button>
             </div>
             <div className="flex-1">
-              <Image src="/img3.png" alt="Main Product" width={600} height={800} className="w-full h-auto object-cover rounded-lg" />
+              <Image src="/img3.png" alt="Main Product" width={600} height={800} className="w-full h-auto object-cover rounded-none" />
               <div className="grid grid-cols-3 gap-4 my-6 py-4 border-t border-b">
                 <IconText  icon={Package} text="Free Shipping" subtext="On orders above Rs. 1999" />
                 <IconText icon={Truck} text="COD Available" subtext="On all orders" />
@@ -191,7 +191,7 @@ const ProductPage = () => {
               <h2 className="text-sm font-semibold mb-2 text-gray-800">Select Color</h2>
               <div className="flex gap-2">
                 {colorOptions.map((src, index) => (
-                  <Image key={index} src="/img3.png" alt={`Color ${index + 1}`} width={64} height={80} className="w-16 h-20 object-cover rounded-md cursor-pointer border hover:border-pink-500" />
+                  <Image key={index} src="/img3.png" alt={`Color ${index + 1}`} width={64} height={80} className="w-16 h-20 object-cover rounded-none cursor-pointer border hover:border-pink-500" />
                 ))}
               </div>
             </div>
@@ -235,12 +235,15 @@ const ProductPage = () => {
 
             {/* Actions */}
             <div className="flex gap-4 mb-6">
-              <Button className="flex-1 bg-[#B76E79] hover:bg-pink-700 text-white">
-                <ShoppingCart className="w-5 h-5 mr-2" /> ADD TO BAG
+              <Button className="flex-1 bg-white  text-black hover:bg-white border-[1px] rounded-none border-gray-500">
+                <Heart className="w-5 h-5 mr-2" /> ADD TO WISHLIST
               </Button>
-              <Button variant="outline" className="border-pink-600 text-pink-600">
-                <Heart className="w-5 h-5" />
+        
+                      <Button className="flex-1 bg-[#B76E79]  text-white hover:bg-[#B76E79] border-[1px] rounded-none border-gray-500">
+                <ShoppingCart className="w-5 h-5 mr-2" /> ADD TO CART
               </Button>
+        
+
             </div>
 
             {/* Accordion */}
