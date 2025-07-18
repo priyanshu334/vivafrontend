@@ -2,12 +2,12 @@
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaFacebookF, FaGoogle } from "react-icons/fa";
 import CategoryScroller from "@/components/CategoryScroller";
 
 export default function Page() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white ">
       {/* Breadcrumb */}
       <CategoryScroller/>
       <nav className=" top-4 left-4 text-xs text-rose-500 tracking-wide">
@@ -25,19 +25,19 @@ export default function Page() {
           <Input type="email" placeholder="Email" />
           <Input type="password" placeholder="Password" />
 
-          <Button type="submit" className="w-full bg-rose-400 hover:bg-rose-500 tracking-widest text-white">
+          <Button type="submit" className="w-full bg-[#B76E79] hover:bg-[#B76E79] tracking-widest text-white">
             LOGIN
           </Button>
         </form>
 
         {/* Social Buttons */}
-        <div className="flex justify-center gap-4 pt-4">
-          <Button variant="ghost" className="bg-[#3b5998] hover:bg-[#2d4373] text-white p-2">
-            <FaFacebook size={20} />
-          </Button>
-          <Button variant="ghost" className="bg-[#db4437] hover:bg-[#c33d2e] text-white p-2">
-            <FaGoogle size={20} />
-          </Button>
+   <div className="flex justify-center gap-4">
+           <Button className="bg-[#3b5998] hover:bg-[#2d4373] text-white w-12 h-12 rounded-none">
+             <FaFacebookF size={20} />
+           </Button>
+           <Button className="bg-[#db4437] hover:bg-[#c23321] text-white w-12 h-12 rounded-none">
+             <FaGoogle size={20} />
+           </Button>
         </div>
       </div>
     </div>

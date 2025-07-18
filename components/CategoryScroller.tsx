@@ -32,7 +32,7 @@ export default function CategoryScroller() {
   };
 
   return (
-    <div className="w-full mb-10 mt-1">
+    <div className="w-full  mt-1">
       {/* Top Banner */}
       <div className="flex justify-between bg-[#B76E79] text-white text-xs sm:text-sm uppercase px-4 sm:px-8 py-3 font-semibold tracking-wide shadow-sm">
         <span className="flex items-center">
@@ -63,7 +63,7 @@ export default function CategoryScroller() {
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scroll-smooth px-4 sm:px-12 gap-2 sm:gap-1 scrollbar-hide"
+          className="flex overflow-x-auto scroll-smooth px-4 sm:px-4 gap-2 sm:gap-1 scrollbar-hide"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
@@ -72,7 +72,7 @@ export default function CategoryScroller() {
           {categories.map((cat, idx) => (
             <div
               key={idx}
-              className="group min-w-[150px] sm:min-w-[150px] flex-shrink-0 bg-white border border-gray-900 rounded-sm overflow-hidden shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+              className="group min-w-[150px] sm:min-w-[150px] flex-shrink-0 bg-white border-[0.5px] border-gray-700 rounded-sm overflow-hidden shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
             >
               <div className="relative w-full h-56 sm:h-78 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>

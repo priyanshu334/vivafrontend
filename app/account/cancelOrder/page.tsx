@@ -1,95 +1,113 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+"use client";
+
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import Sidebar from "@/components/Sidebar";
 
-const Page = () => {
+export default function OrderSummary() {
   return (
-    <div className="max-w-2xl mx-auto p-4 space-y-6">
-      {/* Breadcrumb */}
-      <nav className="text-xs text-gray-500">
-        <span className="text-pink-500">HOME</span> | ACCOUNT | MY ORDERS
-      </nav>
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar */}
+      <Sidebar />
 
-      {/* Product Section */}
-      <Card>
-        <CardContent className="flex flex-col items-center py-6">
-          <img
-            src="/img3.png"
-            alt="Product"
-            className="w-32 h-48 object-cover mb-4"
-          />
-          <h2 className="text-sm font-semibold text-center">
-            BLACK COLLAR BAROQUE COTTON LOUNGEWEAR SET
-          </h2>
-          <p className="text-sm text-gray-600 mt-1">Size : L</p>
+      {/* Main Content */}
+      <main className="flex-1 px-4 sm:px-6 py-10 max-w-4xl mx-auto">
+        {/* Breadcrumb */}
+        <div className="text-sm text-gray-600 mb-4">
+          <a href="/" className="underline text-pink-500 hover:text-pink-600">
+            Home
+          </a>{" "}
+          |{" "}
+          <a href="/account" className="underline text-pink-500 hover:text-pink-600">
+            Account
+          </a>{" "}
+          |{" "}
+          <a href="/account/orders" className="underline text-pink-500 hover:text-pink-600">
+            My Orders
+          </a>
+        </div>
 
-          {/* Buttons */}
-          <div className="flex gap-4 mt-4">
-            <Button className="bg-[#089313] hover:bg-green-700 px-20 py-5">Cancel Order</Button>
-            <Button variant="outline" className="px-20 py-5 hover:bg-amber-50 border">Update Address</Button>
-          </div>
+        {/* Product Summary */}
+        <Card className="border mb-6">
+          <CardContent className="flex flex-col items-center py-8">
+            <Image
+              src="/img3.png"
+              alt="Loungewear"
+              width={150}
+              height={150}
+              className="rounded-md shadow-md"
+            />
+            <h2 className="mt-4 text-center font-semibold text-sm uppercase">
+              Black Collar Baroque Cotton Loungewear Set
+            </h2>
+            <p className="text-sm mt-1">Size: L</p>
 
-          {/* Delivery Info */}
-          <Input
-            disabled
-            value="Will be Delivered  on 02 June"
-            className="mt-6 text-center"
-          />
-        </CardContent>
-      </Card>
+            <div className="bg-[#000000A6] text-white rounded-md px-8 py-3 mt-4 text-center text-sm">
+              Cancelled, as per your request
+            </div>
 
-      {/* Delivery Address */}
-      <Card>
-        <CardContent className="py-4 px-6">
-          <h3 className="font-semibold mb-2">Delivery Address</h3>
-          <p className="text-xs text-pink-500 font-medium">
+            <div className="mt-4 text-sm bg-gray-100 w-full px-4 py-2 border border-gray-200 text-center">
+              Return Window Closed on 02 June{" "}
+              <span className="text-red-500 cursor-pointer hover:underline">
+                Read Policy
+              </span>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Delivery Address */}
+        <section className="mb-6">
+          <h3 className="font-semibold text-lg">Delivery Address</h3>
+          <p className="text-sm text-rose-500 font-medium mt-2">
             NAME SURNAME | 87512693214
           </p>
-          <p className="text-sm text-gray-700">
-            Address Address Address Address, Street, City-985142
+          <p className="text-sm mt-1 text-gray-700">
+            Address Address Address, Street, City - 985142
           </p>
-        </CardContent>
-      </Card>
+        </section>
 
-      {/* Price Summary */}
-      <Card>
-        <CardContent className="py-4 px-6">
-          <h3 className="font-semibold mb-4">Total Order Price</h3>
-          <div className="text-sm">
-            <div className="flex justify-between">
-              <span>Total MRP</span>
-              <span>₹2,490</span>
+        {/* Price Details */}
+        <section className="border rounded-md overflow-hidden">
+          <div className="bg-gray-100 px-4 py-3 font-medium border-b">
+            Total Order Price
+          </div>
+          <div className="p-4 text-sm space-y-2">
+            <div className="flex justify-between font-semibold text-lg">
+              <span>₹1,490.00</span>
+              <span className="text-green-600 text-sm mt-1">Saving ₹1,000</span>
             </div>
-            <div className="flex justify-between text-green-600">
-              <span>Discount on MRP</span>
-              <span>-₹1,000</span>
+
+            <div className="border-t pt-3 space-y-1">
+              <div className="flex justify-between">
+                <span>Total MRP</span>
+                <span>₹2,490</span>
+              </div>
+              <div className="flex justify-between text-green-600">
+                <span>Discount on MRP</span>
+                <span>-₹1,000</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Convenience Charges</span>
+                <span>₹0</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Additional Discount</span>
+                <span>₹0</span>
+              </div>
             </div>
-            <div className="flex justify-between">
-              <span>Convenience Charges</span>
-              <span>₹0</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Additional Discount</span>
-              <span>₹0</span>
-            </div>
-            <div className="flex justify-between font-semibold border-t mt-2 pt-2">
+
+            <div className="flex justify-between pt-3 font-medium border-t">
               <span>You Pay</span>
               <span>₹1,490</span>
             </div>
           </div>
-        </CardContent>
-      </Card>
 
-      {/* Payment Mode */}
-      <Card>
-        <CardContent className="py-2 px-6 flex justify-between text-sm">
-          <span className="font-medium">Payment Mode</span>
-          <span className="text-gray-800">Cash</span>
-        </CardContent>
-      </Card>
+          <div className="bg-gray-100 px-4 py-3 text-sm border-t flex justify-between">
+            <span>Payment Mode</span>
+            <span className="font-medium">Cash</span>
+          </div>
+        </section>
+      </main>
     </div>
   );
-};
-
-export default Page;
+}

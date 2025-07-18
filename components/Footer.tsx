@@ -3,7 +3,7 @@ import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 mt-20">
+    <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-500 mt-20">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         {/* Main Footer Content */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-4 gap-12">

@@ -8,7 +8,7 @@ import CategoryScroller from "@/components/CategoryScroller";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center pt-10 px-4">
+    <div className="min-h-screen bg-white flex flex-col items-center pt-10 ">
       {/* Top Navigation */}
       <CategoryScroller/>
       <div className="w-full max-w-md text-left text-xs text-rose-400 tracking-widest mb-10 mt-10">
@@ -38,13 +38,13 @@ export default function LoginPage() {
               className="border border-black rounded-none h-12 placeholder:text-gray-500"
             />
             <div className="text-right mt-1 text-sm text-black underline">
-              <Link href="#">Forgot Password ?</Link>
+              <Link href="/recover-password">Forgot Password ?</Link>
             </div>
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-rose-400 hover:bg-rose-500 rounded-none tracking-widest text-white h-12"
+            className="w-full bg-[#B76E79] hover:bg-[#B76E79] rounded-none tracking-widest text-white h-12"
           >
             LOGIN
           </Button>

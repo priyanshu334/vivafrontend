@@ -32,40 +32,33 @@ const KurtaSet = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-      <div className="w-full mx-auto px-4 py-8">
+      <div className="w-full mx-auto border-t border-black   ">
         {/* Banner */}
         <div className="relative w-full mb-16">
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+          <div className="relative overflow-hidden  shadow-2xl">
             <img
               src="/img1.png"
               alt="Perfectly Paired Kurta Sets"
-              className="w-full h-[450px] object-cover"
+              className="w-full h-[650px] object-cover"
             />
-            <div className="absolute inset-0 bg-black opacity-20"></div>
-            <div className="absolute bottom-8 left-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">
-                Perfectly Paired
-              </h1>
-              <p className="text-xl text-white/90 drop-shadow-md">
-                Kurta Sets Collection
-              </p>
-            </div>
+            <div className="absolute inset-0 bg-black opacity-10"></div>
+         
           </div>
         </div>
 
         {/* New Arrivals Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 ">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
             NEW ARRIVALS
           </h2>
-          <div className="w-24 h-1 bg-[#AE4A56] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#AE4A56] mx-auto "></div>
           <p className="text-gray-600 mt-4 text-lg">
             Discover our latest collection of elegant kurta sets
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mx-4">
           {allProducts.map((product, index) => {
             const isWished = wishlist.some((item) => item.title === product.title);
             const productId = index + 1;
@@ -73,7 +66,7 @@ const KurtaSet = () => {
             return (
               <Card
                 key={index}
-                className="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white rounded-2xl"
+                className="group relative overflow-hidden rounded-none hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white"
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">

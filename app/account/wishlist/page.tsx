@@ -1,99 +1,136 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Heart } from "lucide-react";
-import { wishlist } from "@/utils/data";
-import { useWishlistStore } from "@/stores/wishlistStore";
+import { X } from "lucide-react";
 
-const WishlistPage = () => {
-  const wishlist = useWishlistStore((state) => state.wishlist);
+const wishlistItems = [
+  {
+    id: 1,
+    image: "/shirt1.jpg",
+    name: "Black Blossom Threadwork Cotton Shirt",
+    price: 1690,
+    status: "available",
+  },
+  {
+    id: 2,
+    image: "/shirt2.jpg",
+    name: "Black Blossom Threadwork Cotton Shirt",
+    price: 1690,
+    status: "available",
+  },
+  {
+    id: 3,
+    image: "/shirt3.jpg",
+    name: "Black Blossom Threadwork Cotton Shirt",
+    price: 1690,
+    status: "sold",
+  },
+  {
+    id: 4,
+    image: "/shirt4.jpg",
+    name: "Black Blossom Threadwork Cotton Shirt",
+    price: 1690,
+    status: "sold",
+  },
+  {
+    id: 5,
+    image: "/shirt5.jpg",
+    name: "Black Blossom Threadwork Cotton Shirt",
+    price: 1490,
+    oldPrice: 2490,
+    discount: "40% OFF",
+    status: "available",
+  },
+  {
+    id: 6,
+    image: "/shirt6.jpg",
+    name: "Black Blossom Threadwork Cotton Shirt",
+    price: 1490,
+    oldPrice: 2490,
+    discount: "40% OFF",
+    status: "sold",
+  },
+];
+
+export default function WishlistPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="w-full mx-auto p-4 sm:p-6 lg:p-8">
-        {/* Header Section */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">WISHLIST</h2>
-          <p className="text-gray-600 text-lg">{wishlist.length} PRODUCTS</p>
+    <div className="min-h-screen flex">
+ <aside className="w-64 bg-white border-r p-6 space-y-6">
+        <h1 className="text-2xl font-bold uppercase">Account</h1>
+        <p className="text-gray-600">Xyz Name</p>
+        <nav className="mt-6 space-y-4 text-sm">
+          <div className="text-rose-400 font-bold">MY PROFILE</div>
+          <div>MY WISHLIST</div>
+          <div>MY ORDERS</div>
+          <div>MY ADDRESSES</div>
+          <div>TRACK ORDER</div>
+          <div>LOGOUT</div>
+        </nav>
+      </aside>
+
+      {/* Wishlist Content */}
+      <main className="flex-1 p-6">
+        <div className="text-sm breadcrumbs text-gray-500 mb-2">
+          HOME | ACCOUNT | <span className="text-black font-medium">WISHLIST</span>
         </div>
+        <h2 className="text-lg font-semibold mb-6">MY WISHLIST</h2>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {wishlist.map((item, index) => {
-            const available = item.label !== "SOLD OUT";
-            const buttonText = available
-              ? item.label === "ADD TO CART" || item.label === "BEST PICK"
-                ? "MOVE TO BAG"
-                : item.label
-              : "NOTIFY ME";
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {wishlistItems.map((item) => (
+            <Card key={item.id} className="relative group shadow-sm border">
+              <button className="absolute top-2 right-2 z-10 p-1 bg-white rounded-full shadow">
+                <X size={16} />
+              </button>
 
-            return (
-              <Card
-                key={index}
-                className="relative group bg-white border-0 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Image Container */}
-                <div className="relative overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={`w-full h-130 object-cover transition-transform duration-500 group-hover:scale-105 ${
-                      !available && "grayscale opacity-70"
-                    }`}
-                  />
+              <div className="relative w-full h-80">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
+                />
+                {item.status === "sold" && (
+                  <Badge className="absolute top-4 left-4 bg-black text-white rounded-none px-3 py-1 text-xs">
+                    SOLD OUT
+                  </Badge>
+                )}
+                {item.discount && (
+                  <Badge className="absolute top-4 right-4 bg-green-100 text-green-800 rounded-none px-3 py-1 text-xs">
+                    {item.discount}
+                  </Badge>
+                )}
+              </div>
 
-                  {/* Heart Icon */}
-                  <div className="absolute top-3 right-3">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors duration-200">
-                      <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                    </div>
-                  </div>
-
-                  {/* Sold Out Badge */}
-                  {!available && (
-                    <Badge className="absolute top-3 left-3 bg-gray-900 text-white border-0 px-3 py-1 text-xs font-medium">
-                      SOLD OUT
-                    </Badge>
+              <CardContent className="mt-4 space-y-1 px-4 pb-4">
+                <h3 className="text-sm text-gray-800 leading-tight">
+                  {item.name}
+                </h3>
+                <div className="text-sm font-semibold text-gray-900">
+                  ₹ {item.price}
+                  {item.oldPrice && (
+                    <span className="ml-2 line-through text-xs text-gray-500">
+                      ₹ {item.oldPrice}
+                    </span>
                   )}
                 </div>
-
-                {/* Content */}
-                <CardContent className="p-5 space-y-3">
-                  <h3 className="text-sm font-medium text-gray-900 line-clamp-2 leading-relaxed">
-                    {item.title}
-                  </h3>
-                  <p className="text-xl font-bold text-gray-900">₹{item.price.toLocaleString()}</p>
-
-                  {available ? (
-                    <Button className="w-full h-11 rounded-lg bg-[#b36985] hover:bg-[#a25877] text-white font-medium transition-colors duration-200 shadow-sm hover:shadow-md">
-                      {buttonText}
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="outline"
-                      disabled
-                      className="w-full h-11 rounded-lg border-gray-300 text-gray-500 font-medium"
-                    >
-                      {buttonText}
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
-            );
-          })}
+                {item.status === "available" ? (
+                  <Button className="w-full mt-1 rounded-none bg-[#b88192] hover:bg-[#a76e81]">
+                    MOVE TO BAG
+                  </Button>
+                ) : (
+                  <Button variant="outline" disabled className="w-full mt-1 rounded-none">
+                    NOTIFY ME
+                  </Button>
+                )}
+              </CardContent>
+            </Card>
+          ))}
         </div>
-
-        {/* Show More Button */}
-        <div className="text-center">
-          <Button className="px-12 py-4 bg-[#B76E79] hover:bg-[#a25877] text-white  font-medium text-base shadow-md hover:shadow-lg transition-all duration-200">
-            Show More
-          </Button>
-        </div>
-      </div>
+      </main>
     </div>
   );
-};
-
-export default WishlistPage;
+}
