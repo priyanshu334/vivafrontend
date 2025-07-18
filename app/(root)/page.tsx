@@ -34,15 +34,14 @@ const KurtaSet = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       <div className="w-full mx-auto border-t border-black   ">
         {/* Banner */}
-        <div className="relative w-full mb-16">
-          <div className="relative overflow-hidden  shadow-2xl">
+         <div className="relative w-full mb-16">
+          <div className="relative overflow-hidden shadow-2xl">
             <img
               src="/img1.png"
               alt="Perfectly Paired Kurta Sets"
-              className="w-full h-[650px] object-cover"
+              className="w-full h-[150px] sm:h-[400px] md:h-[500px] lg:h-[650px] object-cover"
             />
-            <div className="absolute inset-0 bg-black opacity-10"></div>
-         
+            <div className="absolute inset-0 bg-black opacity-10" />
           </div>
         </div>
 
