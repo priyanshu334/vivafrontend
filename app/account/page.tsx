@@ -24,12 +24,14 @@ export default function MyProfilePage() {
   const [dob, setDob] = useState({ day: "19", month: "09", year: "1984" });
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col sm:flex-row min-h-screen">
+      {/* Sidebar for both mobile and desktop */}
       <Sidebar />
 
-      <main className="flex-1 p-6 sm:p-12">
+      {/* Main content */}
+      <main className="w-full p-4 sm:p-8 lg:p-12 bg-white">
         {/* Breadcrumb */}
-                <nav className="text-sm text-gray-500 mb-6 flex flex-wrap items-center gap-2">
+        <nav className="text-sm text-gray-500 mb-6 flex flex-wrap items-center gap-2">
           <Link
             href="/"
             className="text-pink-500 font-medium hover:text-pink-600"
@@ -50,17 +52,16 @@ export default function MyProfilePage() {
             Contact Information
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-1 gap-4 mb-4">
+          <div className="grid gap-4 mb-4">
             <Input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="EMAIL"
-              className=""
             />
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <Select defaultValue="INDIA">
-                <SelectTrigger className="w-28 ">
+                <SelectTrigger className="sm:w-28 w-full">
                   <SelectValue placeholder="INDIA" />
                 </SelectTrigger>
                 <SelectContent>
@@ -75,12 +76,11 @@ export default function MyProfilePage() {
             </div>
           </div>
 
-          <Button className="bg-[#B76E79]  text-white w-full sm:w-1/3 text-lg font-semibold tracking-wide rounded-none">
+          <Button className="bg-[#B76E79] text-white w-full sm:w-1/3 text-lg font-semibold tracking-wide rounded-none">
             EDIT
           </Button>
         </section>
 
-        {/* Divider */}
         <hr className="border-t border-gray-300 my-6" />
 
         {/* Primary Info */}
@@ -94,13 +94,11 @@ export default function MyProfilePage() {
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               placeholder="First Name"
-              className=""
             />
             <Input
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               placeholder="Last Name"
-              className=""
             />
 
             <div>
@@ -110,33 +108,24 @@ export default function MyProfilePage() {
                 className="flex gap-4"
                 onValueChange={(value) => setGender(value)}
               >
-                <div className="flex items-center space-x-1">
-                  <RadioGroupItem value="male" id="male" />
-                  <Label htmlFor="male" className="text-sm">
-                    MALE
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <RadioGroupItem value="female" id="female" />
-                  <Label htmlFor="female" className="text-sm">
-                    FEMALE
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-1">
-                  <RadioGroupItem value="other" id="other" />
-                  <Label htmlFor="other" className="text-sm">
-                    OTHER
-                  </Label>
-                </div>
+                {["male", "female", "other"].map((g) => (
+                  <div key={g} className="flex items-center space-x-1">
+                    <RadioGroupItem value={g} id={g} />
+                    <Label htmlFor={g} className="text-sm uppercase">
+                      {g}
+                    </Label>
+                  </div>
+                ))}
               </RadioGroup>
             </div>
 
-            <div className="flex gap-2">
+            {/* DOB Select */}
+            <div className="flex flex-col sm:flex-row gap-2">
               <Select
                 defaultValue={dob.day}
                 onValueChange={(val) => setDob({ ...dob, day: val })}
               >
-                <SelectTrigger className="w-20 ">
+                <SelectTrigger className="sm:w-20 w-full">
                   <SelectValue placeholder="Day" />
                 </SelectTrigger>
                 <SelectContent>
@@ -151,7 +140,7 @@ export default function MyProfilePage() {
                 defaultValue={dob.month}
                 onValueChange={(val) => setDob({ ...dob, month: val })}
               >
-                <SelectTrigger className="w-24 ">
+                <SelectTrigger className="sm:w-24 w-full">
                   <SelectValue placeholder="Month" />
                 </SelectTrigger>
                 <SelectContent>
@@ -166,7 +155,7 @@ export default function MyProfilePage() {
                 defaultValue={dob.year}
                 onValueChange={(val) => setDob({ ...dob, year: val })}
               >
-                <SelectTrigger className="w-28">
+                <SelectTrigger className="sm:w-28 w-full">
                   <SelectValue placeholder="Year" />
                 </SelectTrigger>
                 <SelectContent>
@@ -183,20 +172,19 @@ export default function MyProfilePage() {
                 type="password"
                 value="********"
                 readOnly
-                className=""
               />
-              <button className="text-sm text-rose-400 underline">
+              <button className="text-sm text-rose-400 underline whitespace-nowrap">
                 Change Password
               </button>
             </div>
 
-            <div className="flex gap-4 pt-4">
-              <Button className="w-1/2 bg-[#B76E79] text-white text-lg tracking-wide font-semibold rounded-none">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button className="w-full sm:w-1/2 bg-[#B76E79] text-white text-lg tracking-wide font-semibold rounded-none">
                 UPDATE
               </Button>
               <Button
                 variant="outline"
-                className="w-1/2 text-lg tracking-wide font-semibold rounded-none"
+                className="w-full sm:w-1/2 text-lg tracking-wide font-semibold rounded-none"
               >
                 CANCEL
               </Button>

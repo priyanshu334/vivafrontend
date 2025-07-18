@@ -8,23 +8,27 @@ import CategoryScroller from "@/components/CategoryScroller";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center pt-10 ">
-      {/* Top Navigation */}
-      <CategoryScroller/>
-      <div className="w-full max-w-md text-left text-xs text-rose-400 tracking-widest mb-10 mt-10">
+    <div className="min-h-screen bg-white flex flex-col items-center  pt-4 sm:pt-6 md:pt-10">
+      {/* Top Navbar */}
+      <div className="w-full mb-6 sm:mb-8">
+        <CategoryScroller />
+      </div>
+
+      {/* Breadcrumb */}
+      <div className="w-full max-w-md text-left text-xs text-rose-400 tracking-widest px-4 mb-6 sm:mb-10">
         <Link href="#" className="hover:underline">HOME</Link>
         <span className="mx-1">|</span>
         <Link href="#" className="hover:underline">ACCOUNT</Link>
       </div>
 
-      {/* Main Card */}
-      <div className="w-full max-w-md text-center space-y-6">
+      {/* Login Card */}
+      <div className="w-full max-w-md bg-white text-center space-y-6 px-4" >
         <h1 className="text-3xl tracking-widest font-semibold">Login</h1>
         <p className="text-sm text-gray-600">
           Please enter your e-mail and password
         </p>
 
-        {/* Form */}
+        {/* Login Form */}
         <form className="space-y-4">
           <Input
             type="email"

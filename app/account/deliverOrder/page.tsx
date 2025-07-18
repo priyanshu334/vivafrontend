@@ -6,7 +6,7 @@ import Sidebar from "@/components/Sidebar";
 
 export default function OrderSummary() {
   return (
-    <div className="flex min-h-screen bg-white">
+    <div className="flex flex-col sm:flex-row min-h-screen">
       {/* Sidebar */}
       <Sidebar />
 

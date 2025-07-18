@@ -72,7 +72,7 @@ export default function MyOrders() {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex flex-col sm:flex-row min-h-screen">
       <Sidebar />
 
       <main className="flex-1 px-4 sm:px-6 py-10 max-w-6xl mx-auto relative">

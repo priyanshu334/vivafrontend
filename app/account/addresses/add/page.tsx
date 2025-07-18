@@ -30,7 +30,7 @@ export default function AddressForm() {
   const [addressType, setAddressType] = useState("home");
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex flex-col sm:flex-row min-h-screen">
       {/* Sidebar */}
       <Sidebar />
 
