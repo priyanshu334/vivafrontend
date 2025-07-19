@@ -115,7 +115,7 @@ const CartPage = () => {
               </div>
             </div>
             <Button
-              className="w-full bg-[#b36985] hover:bg-[#a25877] text-white font-medium h-11 rounded-lg shadow-sm hover:shadow-md"
+              className="w-full bg-[#b36985] rounded-none hover:bg-[#a25877] text-white font-medium h-11  shadow-sm hover:shadow-md"
               disabled={cart.length === 0}
             >
               PLACE ORDER

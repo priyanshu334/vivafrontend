@@ -48,13 +48,107 @@ const orders = [
   },
 ];
 
+function FilterContent({
+  statusFilter,
+  setStatusFilter,
+  timeFilter,
+  setTimeFilter,
+  onClose,
+}: {
+  statusFilter: string;
+  setStatusFilter: (value: string) => void;
+  timeFilter: string;
+  setTimeFilter: (value: string) => void;
+  onClose: () => void;
+}) {
+  return (
+    <>
+      {/* Status Filter */}
+      <div className="mb-6">
+        <h3 className="text-sm font-semibold mb-3">Status</h3>
+        <RadioGroup
+          value={statusFilter}
+          onValueChange={setStatusFilter}
+          className="space-y-3"
+        >
+          <div className="flex items-center space-x-3">
+            <RadioGroupItem value="all" id="status-all" />
+            <Label
+              htmlFor="status-all"
+              className="text-sm font-medium text-[#b36985]"
+            >
+              All
+            </Label>
+          </div>
+          {["In Transit", "Delivered", "Cancelled", "Returned"].map((status, i) => (
+            <div key={i} className="flex items-center space-x-3 text-gray-700">
+              <RadioGroupItem value={status} id={`status-${i}`} />
+              <Label htmlFor={`status-${i}`} className="text-sm">
+                {status}
+              </Label>
+            </div>
+          ))}
+        </RadioGroup>
+      </div>
+
+      {/* Time Filter */}
+      <div className="mb-6 border-t border-gray-200 pt-4">
+        <h3 className="text-sm font-semibold mb-3">Time</h3>
+        <RadioGroup
+          value={timeFilter}
+          onValueChange={setTimeFilter}
+          className="space-y-3"
+        >
+          <div className="flex items-center space-x-3">
+            <RadioGroupItem value="1" id="time-1" />
+            <Label
+              htmlFor="time-1"
+              className="text-sm font-medium text-[#b36985]"
+            >
+              1 Day
+            </Label>
+          </div>
+          {["7 Day", "30 Days", "6 Months", "Last Year"].map((time, i) => (
+            <div key={i} className="flex items-center space-x-3 text-gray-700">
+              <RadioGroupItem value={time} id={`time-${i}`} />
+              <Label htmlFor={`time-${i}`} className="text-sm">
+                {time}
+              </Label>
+            </div>
+          ))}
+        </RadioGroup>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex gap-2 mt-4">
+        <Button
+          className="bg-[#b36985] text-white flex-1 hover:bg-[#a25877]"
+          onClick={onClose}
+        >
+          Apply
+        </Button>
+        <Button
+          variant="outline"
+          className="flex-1"
+          onClick={() => {
+            setStatusFilter("all");
+            setTimeFilter("1");
+            onClose();
+          }}
+        >
+          Clear
+        </Button>
+      </div>
+    </>
+  );
+}
+
 export default function MyOrders() {
   const [showFilter, setShowFilter] = useState(false);
   const [statusFilter, setStatusFilter] = useState("all");
   const [timeFilter, setTimeFilter] = useState("1");
   const filterRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -96,6 +190,7 @@ export default function MyOrders() {
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900">My Orders</h1>
           </div>
           <div className="relative" ref={filterRef}>
+            {/* Filter Button */}
             <Button
               variant="outline"
               size="sm"
@@ -106,77 +201,35 @@ export default function MyOrders() {
               Filter
             </Button>
 
-            {/* Filter Dropdown */}
+            {/* Desktop Filter Dropdown */}
             {showFilter && (
-              <div className="absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4">
-                {/* Status Filter */}
-                <div className="mb-6">
-                  <h3 className="text-sm font-semibold mb-3">Status</h3>
-                  <RadioGroup
-                    value={statusFilter}
-                    onValueChange={setStatusFilter}
-                    className="space-y-3"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="all" id="status-all" />
-                      <Label htmlFor="status-all" className="text-sm font-medium text-[#b36985]">
-                        All
-                      </Label>
-                    </div>
-                    {["In Transit", "Delivered", "Cancelled", "Returned"].map((status, i) => (
-                      <div key={i} className="flex items-center space-x-3 text-gray-700">
-                        <RadioGroupItem value={status} id={`status-${i}`} />
-                        <Label htmlFor={`status-${i}`} className="text-sm">
-                          {status}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                </div>
-
-                {/* Time Filter */}
-                <div className="mb-6 border-t border-gray-200 pt-4">
-                  <h3 className="text-sm font-semibold mb-3">Time</h3>
-                  <RadioGroup
-                    value={timeFilter}
-                    onValueChange={setTimeFilter}
-                    className="space-y-3"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <RadioGroupItem value="1" id="time-1" />
-                      <Label htmlFor="time-1" className="text-sm font-medium text-[#b36985]">
-                        1 Day
-                      </Label>
-                    </div>
-                    {["7 Day", "30 Days", "6 Months", "Last Year"].map((time, i) => (
-                      <div key={i} className="flex items-center space-x-3 text-gray-700">
-                        <RadioGroupItem value={time} id={`time-${i}`} />
-                        <Label htmlFor={`time-${i}`} className="text-sm">
-                          {time}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-2 mt-4">
-                  <Button className="bg-[#b36985] text-white flex-1 hover:bg-[#a25877]">
-                    Apply
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="flex-1"
-                    onClick={() => {
-                      setStatusFilter("all");
-                      setTimeFilter("1");
-                    }}
-                  >
-                    Clear
-                  </Button>
-                </div>
+              <div className="hidden sm:block absolute right-0 mt-2 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 p-4">
+                <FilterContent
+                  statusFilter={statusFilter}
+                  setStatusFilter={setStatusFilter}
+                  timeFilter={timeFilter}
+                  setTimeFilter={setTimeFilter}
+                  onClose={() => setShowFilter(false)}
+                />
               </div>
             )}
+
+            {/* Mobile Bottom Sheet Filter */}
+           {showFilter && (
+  <div className="sm:hidden fixed inset-0 z-50 bg-transparent flex items-end">
+    <div className="bg-white w-full rounded-t-2xl p-4 max-h-[90vh] overflow-y-auto">
+      <div className="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-4" />
+      <FilterContent
+        statusFilter={statusFilter}
+        setStatusFilter={setStatusFilter}
+        timeFilter={timeFilter}
+        setTimeFilter={setTimeFilter}
+        onClose={() => setShowFilter(false)}
+      />
+    </div>
+  </div>
+)}
+
           </div>
         </div>
 
@@ -185,7 +238,7 @@ export default function MyOrders() {
           {orders.map((order, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-md transition-shadow duration-200 bg-white"
+              className="overflow-hidden hover:shadow-md transition-shadow duration-200 bg-white rounded-none"
             >
               <CardContent className="p-0">
                 <div className={`${order.bgColor} ${order.borderColor} border-l-4 px-4 sm:px-6 py-3`}>
@@ -236,7 +289,7 @@ export default function MyOrders() {
         <div className="text-center mt-8">
           <Button
             variant="outline"
-            className="px-8 bg-[#B76E79] text-white hover:text-white hover:bg-[#a15865] hover:border-pink-200"
+            className="px-8 rounded-none bg-[#B76E79] text-white hover:text-white hover:bg-[#a15865] hover:border-pink-200"
           >
             Load More Orders
           </Button>

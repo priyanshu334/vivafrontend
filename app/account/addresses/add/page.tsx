@@ -55,7 +55,7 @@ export default function AddressForm() {
         </nav>
 
         {/* Form Container */}
-        <div className="bg-white border border-gray-200 rounded-xl shadow-sm">
+        <div className="bg-white border border-gray-200 rounded-none shadow-sm">
           {/* Header */}
           <div className="border-b border-gray-100 p-4 sm:p-6">
             <div className="flex items-center gap-3">
@@ -250,13 +250,13 @@ export default function AddressForm() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100">
-              <Button className="bg-[#B76E79] hover:bg-[#9e5964] text-white px-6 py-3 h-auto flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Button className="bg-[#B76E79] hover:bg-[#9e5964] text-white px-6 py-3 h-auto flex items-center justify-center gap-2 w-full rounded-none sm:w-auto">
                 <Save className="w-4 h-4" />
                 SAVE ADDRESS
               </Button>
               <Button
                 variant="outline"
-                className="px-6 py-3 h-auto flex items-center justify-center gap-2 border-gray-300 hover:bg-gray-50 w-full sm:w-auto"
+                className="px-6 py-3 h-auto flex items-center justify-center gap-2 border-gray-300 hover:bg-gray-50 w-full rounded-none sm:w-auto"
               >
                 <X className="w-4 h-4" />
                 CANCEL

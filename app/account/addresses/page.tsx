@@ -22,7 +22,7 @@ export default function AddressBook() {
                  <nav className="text-sm text-gray-500 mb-6 flex flex-wrap items-center gap-2">
           <Link
             href="/"
-            className="text-pink-500 font-medium hover:text-pink-600"
+            className="text-pink-500 font-addmedium hover:text-pink-600"
           >
             HOME
           </Link>
@@ -42,7 +42,7 @@ export default function AddressBook() {
                 <h2 className="text-2xl font-bold text-gray-900">MY ADDRESSES</h2>
               </div>
               <Link href="/account/addresses/add">
-                <Button variant="outline" className="flex items-center gap-2 hover:bg-[#B76E79] hover:text-white shadow-sm">
+                <Button variant="outline" className="flex rounded-none items-center gap-2 hover:bg-[#B76E79] hover:text-white shadow-sm">
                   <Plus className="w-4 h-4" />
                   ADD NEW ADDRESS
                 </Button>
@@ -55,7 +55,7 @@ export default function AddressBook() {
           <section className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-900">DEFAULT ADDRESS</h3>
 
-            <Card className="bg-muted border-2 border-[#B76E79]/20 hover:shadow-md transition-shadow">
+            <Card className=" border-1 border-gray-500 hover:shadow-md  rounded-none transition-shadow">
               <CardContent className="p-6 space-y-6">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-2">
@@ -81,13 +81,13 @@ export default function AddressBook() {
                 </div>
 
                 <div className="flex gap-3 pt-6 border-t border-gray-200 flex-wrap">
-                  <Button className="bg-[#B76E79] text-white hover:bg-rose-500 flex items-center gap-2">
+                  <Button className="bg-[#B76E79] text-white rounded-none hover:bg-[#B76E79] hover:shadow-2xl flex items-center gap-2">
                     <Edit className="w-4 h-4" />
                     EDIT
                   </Button>
                   <Button
                     variant="outline"
-                    className="flex items-center gap-2 hover:bg-red-50 hover:text-red-600 hover:border-red-200"
+                    className="flex items-center gap-2 hover:bg-red-50 rounded-none hover:text-red-600 hover:border-red-200"
                   >
                     <Trash2 className="w-4 h-4" />
                     REMOVE
@@ -108,7 +108,7 @@ export default function AddressBook() {
               {[1, 2].map((_, i) => (
                 <Card
                   key={i}
-                  className="hover:shadow-md transition-shadow group border border-gray-200 hover:border-[#B76E79]/30"
+                  className="hover:shadow-md rounded-none transition-shadow group border border-gray-200 hover:border-[#B76E79]/30"
                 >
                   <CardContent className="p-6 space-y-4">
                     <div className="flex justify-between items-start">
@@ -116,7 +116,7 @@ export default function AddressBook() {
                       <div className="opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
                         <Button
                           size="sm"
-                          variant="ghost"
+                          
                           className="text-gray-500 hover:text-[#B76E79] hover:bg-[#B76E79]/10 p-2"
                         >
                           <Edit className="w-4 h-4" />
@@ -141,7 +141,7 @@ export default function AddressBook() {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Button size="sm" className="bg-rose-400 text-white hover:bg-rose-500 flex items-center gap-2">
+                      <Button size="sm" className="bg-[#B76E79] rounded-none text-white hover:bg-[#B76E79] flex items-center gap-2">
                         <Edit className="w-3 h-3" />
                         EDIT
                       </Button>
@@ -156,7 +156,7 @@ export default function AddressBook() {
                       <Button
                         size="sm"
                         variant="ghost"
-                        className="ml-auto flex items-center gap-2 text-[#B76E79] hover:bg-[#B76E79]/10"
+                        className="ml-auto flex rounded-none items-center gap-2 text-[#B76E79] hover:bg-[#B76E79]/10"
                       >
                         <Star className="w-3 h-3" />
                         SET AS DEFAULT

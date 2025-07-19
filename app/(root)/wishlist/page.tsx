@@ -87,7 +87,7 @@ const WishlistPage = () => {
 
         {/* Show More Button */}
         <div className="text-center">
-          <Button className="px-12 py-4 bg-[#B76E79] hover:bg-[#a25877] text-white  font-medium text-base shadow-md hover:shadow-lg transition-all duration-200">
+          <Button className="px-12 py-4 rounded-none bg-[#B76E79] hover:bg-[#a25877] text-white  font-medium text-base shadow-md hover:shadow-lg transition-all duration-200">
             Show More
           </Button>
         </div>
