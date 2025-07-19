@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Trash2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
@@ -19,29 +18,34 @@ const CartPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="w-full mx-auto p-4 sm:p-6 lg:p-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-8 pt-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">YOUR BAG</h2>
-          <p className="text-gray-600 text-lg">{cart.length} ITEM{cart.length !== 1 ? "S" : ""}</p>
+          <p className="text-gray-600 text-lg">
+            {cart.length} ITEM{cart.length !== 1 ? "S" : ""}
+          </p>
         </div>
 
         {/* Cart Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-12">
           {/* Cart Items */}
           <div className="space-y-6">
             {cart.length === 0 ? (
               <p className="text-gray-500 text-center">Your cart is empty.</p>
             ) : (
               cart.map((item, index) => (
-                <Card key={index} className="relative flex bg-white border-0 shadow-sm hover:shadow-md transition">
+                <div
+                  key={index}
+                  className="flex bg-white shadow-sm hover:shadow-md transition border border-gray-200 overflow-hidden"
+                >
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-40 h-50 object-cover rounded-l-lg"
+                    className="w-40 h-52 object-cover"
                   />
 
-                  <CardContent className="flex-1 p-4 space-y-2">
+                  <div className="flex-1 p-4 space-y-2">
                     <div className="flex justify-between items-start">
                       <h3 className="text-base font-medium text-gray-900 line-clamp-2">
                         {item.title}
@@ -52,7 +56,9 @@ const CartPage = () => {
                       />
                     </div>
 
-                    <p className="text-lg font-bold text-gray-900">₹{item.price.toLocaleString()}</p>
+                    <p className="text-lg font-bold text-gray-900">
+                      ₹{item.price.toLocaleString()}
+                    </p>
 
                     {item.originalPrice && item.discount && (
                       <div className="flex items-center gap-2">
@@ -77,25 +83,31 @@ const CartPage = () => {
                         >
                           −
                         </Button>
-                        <span className="text-sm font-medium px-2">{item.quantity}</span>
+                        <span className="text-sm font-medium px-2">
+                          {item.quantity}
+                        </span>
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => updateQuantity(item.title, item.quantity + 1)}
+                          onClick={() =>
+                            updateQuantity(item.title, item.quantity + 1)
+                          }
                         >
                           +
                         </Button>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))
             )}
           </div>
 
           {/* Summary */}
-          <div className="bg-white rounded-lg p-6 shadow-md space-y-4 h-fit sticky top-20">
-            <h3 className="text-xl font-semibold text-gray-900">PRICE DETAILS</h3>
+          <div className="bg-white p-6 shadow-md space-y-4 h-fit sticky top-20 border border-gray-200">
+            <h3 className="text-xl font-semibold text-gray-900">
+              PRICE DETAILS
+            </h3>
             <div className="border-t pt-4 space-y-3 text-sm text-gray-700">
               <div className="flex justify-between">
                 <span>Total MRP</span>
@@ -115,7 +127,7 @@ const CartPage = () => {
               </div>
             </div>
             <Button
-              className="w-full bg-[#b36985] rounded-none hover:bg-[#a25877] text-white font-medium h-11  shadow-sm hover:shadow-md"
+              className="w-full bg-[#b36985] hover:bg-[#a25877] text-white font-medium h-11 rounded-none shadow-sm hover:shadow-md"
               disabled={cart.length === 0}
             >
               PLACE ORDER

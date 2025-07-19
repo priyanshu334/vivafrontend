@@ -206,12 +206,12 @@ export default function ProductListingPage() {
       </div>
 
       {/* Show More Button */}
-      <div className="text-center mt-10">
+      <div className="text-center my-10">
         <Button className="bg-[#B76E79]  text-xl rounded-none px-8 py-3">Show More</Button>
       </div>
 
 {/* Recently Viewed */}
-<div className="mt-0 sm:mt-12 px-4 sm:px-0">
+<div className="mt-5 sm:mt-12 px-4 sm:px-0">
   <h2 className="text-xl font-semibold mb-4">RECENTLY VIEWED</h2>
   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 ">
     {recentlyViewed.map((item, idx) => (
