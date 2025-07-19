@@ -126,7 +126,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#b36985] focus:border-transparent text-sm"
               />
-              <button className="bg-gradient-to-r from-[#b36985] to-[#a25877] text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-sm">
+              <button className="bg-gradient-to-r rounded-none from-[#b36985] to-[#a25877] text-white px-6 py-3  font-medium hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 whitespace-nowrap text-sm">
                 Subscribe
               </button>
             </div>

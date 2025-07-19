@@ -55,21 +55,32 @@ const ProductCard = ({
   price: string;
   originalPrice?: string;
 }) => (
-  <Card className="w-full">
-    <CardContent className="p-2">
-      <div className="bg-gray-100 rounded-none overflow-hidden mb-2">
-        <Image src="/img3.png" alt={title} width={300} height={400} className="w-full object-cover aspect-[3/4]" />
+  <div className="w-full">
+    <div className=" border border-gray-300">
+      <div className="bg-gray-100 overflow-hidden mb-2">
+        <Image
+          src={imgSrc}
+          alt={title}
+          width={300}
+          height={400}
+          className="w-full object-cover aspect-[3/4]"
+        />
       </div>
-      <h3 className="text-sm text-gray-700 mb-1">{title}</h3>
+      <div className="p-2">
+        <h3 className="text-sm text-gray-700 mb-1">{title}</h3>
       <div className="flex items-center gap-2">
         <p className="text-sm font-bold text-black">₹{price}</p>
         {originalPrice && (
           <p className="text-sm text-gray-500 line-through">₹{originalPrice}</p>
         )}
+
       </div>
-    </CardContent>
-  </Card>
+      
+      </div>
+    </div>
+  </div>
 );
+
 
 const ProductPage = () => {
   const [selectedSize, setSelectedSize] = useState("M");

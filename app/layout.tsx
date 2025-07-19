@@ -1,24 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IM_Fell_French_Canon } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// Font configurations
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Load IM FELL French Canon font
+const fellFrenchCanon = IM_Fell_French_Canon({
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-fell-french-canon",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-// Site metadata
 export const metadata: Metadata = {
   title: "Viva Boutique",
   description: "Welcome to Your Brand – modern design, quality service, and seamless experience.",
@@ -26,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="antialiased bg-white text-gray-900">
+    <html lang="en" className={fellFrenchCanon.variable}>
+      <body className="antialiased bg-white text-gray-900 font-fell">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

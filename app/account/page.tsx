@@ -26,6 +26,7 @@ export default function MyProfilePage() {
   return (
     <div className="flex flex-col sm:flex-row min-h-screen">
       {/* Sidebar for both mobile and desktop */}
+      
       <Sidebar />
 
       {/* Main content */}
@@ -58,9 +59,10 @@ export default function MyProfilePage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="EMAIL"
+              className="rounded-none"
             />
             <div className="flex flex-col sm:flex-row gap-2">
-              <Select defaultValue="INDIA">
+              <Select defaultValue="INDIA" >
                 <SelectTrigger className="sm:w-28 w-full">
                   <SelectValue placeholder="INDIA" />
                 </SelectTrigger>
@@ -68,10 +70,11 @@ export default function MyProfilePage() {
                   <SelectItem value="INDIA">INDIA</SelectItem>
                 </SelectContent>
               </Select>
-              <Input
+              <Input 
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Phone"
+                className="rounded-none"
               />
             </div>
           </div>
@@ -94,11 +97,13 @@ export default function MyProfilePage() {
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               placeholder="First Name"
+              className="rounded-none"
             />
             <Input
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               placeholder="Last Name"
+              className="rounded-none"
             />
 
             <div>
@@ -172,6 +177,7 @@ export default function MyProfilePage() {
                 type="password"
                 value="********"
                 readOnly
+                className="rounded-none"
               />
               <button className="text-sm text-rose-400 underline whitespace-nowrap">
                 Change Password

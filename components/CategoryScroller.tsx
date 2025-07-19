@@ -72,7 +72,7 @@ export default function CategoryScroller() {
           {categories.map((cat, idx) => (
             <div
               key={idx}
-              className="group min-w-[150px] sm:min-w-[150px] flex-shrink-0 bg-white border-[0.5px] border-gray-700 rounded-sm overflow-hidden shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
+              className="group min-w-[150px] sm:min-w-[150px] flex-shrink-0 bg-white  border-b border-gray-700 rounded-none overflow-hidden shadow-sm hover:shadow-xl hover:border-rose-200 transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
             >
               <div className="relative w-full h-56 sm:h-78 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
@@ -93,7 +93,7 @@ export default function CategoryScroller() {
                   </Badge>
                 )}
               </div>
-              <div className="px-3 py-4">
+              <div className="px-3 py-4 border border-gray-600">
                 <div
                   className={`text-xs sm:text-sm uppercase text-center font-semibold tracking-wide transition-colors duration-300 ${
                     cat.badge === "Sale" 
